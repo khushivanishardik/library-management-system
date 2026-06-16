@@ -9,6 +9,10 @@ const authRoutes = require("./routes/authRoutes");
 
 const bookRoutes = require("./routes/bookRoutes");
 
+const borrowRoutes = require(
+  "./routes/borrowRoutes"
+);
+
 connectDB();
 
 const app = express();
@@ -19,6 +23,11 @@ app.use(express.json());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/books", bookRoutes);
+
+app.use(
+  "/api/borrow",
+  borrowRoutes
+);
 
 app.get("/", (req, res) => {
   res.json({ message: "Library API Running" });

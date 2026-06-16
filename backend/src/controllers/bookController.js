@@ -89,10 +89,48 @@ const deleteBook = async (req, res) => {
   }
 };
 
+const Borrow = require("../models/Borrow");
+const User = require("../models/User");
+
+const getManagerStats = async (
+  req,
+  res
+) => {
+  try {
+
+    const totalBooks =
+      await Book.countDocuments();
+
+    const borrowedBooks =
+      await Borrow.countDocuments({
+        returned: false,
+      });
+
+    const students =
+      await User.countDocuments({
+        role: "student",
+      });
+
+    res.status(200).json({
+      totalBooks,
+      borrowedBooks,
+      students,
+    });
+
+  } catch (error) {
+
+    res.status(500).json({
+      message: error.message,
+    });
+
+  }
+};
+
 module.exports = {
   getBooks,
   getBookById,
   addBook,
   updateBook,
   deleteBook,
+  getManagerStats,
 };

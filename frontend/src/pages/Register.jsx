@@ -1,8 +1,7 @@
-import {
-  useState,
-} from "react";
+import { useState } from "react";
 
 import {
+  Link,
   useNavigate,
 } from "react-router-dom";
 
@@ -34,7 +33,9 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      await registerUser(formData);
+      await registerUser(
+        formData
+      );
 
       alert(
         "Registration Successful"
@@ -51,37 +52,75 @@ const Register = () => {
   };
 
   return (
-    <div className="auth-container">
-      <form
-        onSubmit={handleSubmit}
-      >
-        <h1>Register</h1>
+    <div className="auth-page">
 
-        <input
-          type="text"
-          name="name"
-          placeholder="Name"
-          onChange={handleChange}
-        />
+      <div className="auth-container">
 
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          onChange={handleChange}
-        />
+        <div className="auth-left">
 
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          onChange={handleChange}
-        />
+          <h1>📖 Join LibraryHub</h1>
 
-        <button type="submit">
-          Register
-        </button>
-      </form>
+          <p>
+            Create your account
+            and access a modern
+            digital library
+            platform.
+          </p>
+
+        </div>
+
+        <div className="auth-right">
+
+          <form
+            className="auth-form"
+            onSubmit={handleSubmit}
+          >
+
+            <h2>Create Account</h2>
+
+            <p>
+              Start your journey
+            </p>
+
+            <input
+              type="text"
+              name="name"
+              placeholder="Full Name"
+              onChange={handleChange}
+            />
+
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              onChange={handleChange}
+            />
+
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              onChange={handleChange}
+            />
+
+            <button type="submit">
+              Register
+            </button>
+
+            <div className="auth-link">
+              Already have an account?
+              {" "}
+              <Link to="/login">
+                Login
+              </Link>
+            </div>
+
+          </form>
+
+        </div>
+
+      </div>
+
     </div>
   );
 };

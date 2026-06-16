@@ -1,54 +1,29 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
 }
 
-body {
-  font-family: Inter, sans-serif;
-  background: #0f172a;
-  color: white;
+body{
+  background:
+  linear-gradient(
+    135deg,
+    #0f172a,
+    #1e3a8a,
+    #7c3aed
+  );
+
+  min-height:100vh;
 }
 
-.auth-container {
-  height: 100vh;
-
-  display: flex;
-
-  justify-content: center;
-
-  align-items: center;
-}
-
-form {
-  width: 350px;
-
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 15px;
-
-  padding: 30px;
-
-  background: #1e293b;
-
-  border-radius: 12px;
+a{
+  text-decoration:none;
 }
 
 input,
-button {
-  padding: 12px;
-
-  border-radius: 8px;
-
-  border: none;
-}
-
-button {
-  background: #3b82f6;
-
-  color: white;
-
-  cursor: pointer;
+button{
+  font-family:'Poppins',sans-serif;
 }
